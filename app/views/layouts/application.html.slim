@@ -10,15 +10,15 @@ html lang="en"
     .topnavbar.
       .navbar
         ul.navbar-links
-          / - if user_signed_in?
-          /   li= link_to "Log out", destroy_user_session_path, :method => :delete 
-          /   li.user-welcome
-          /     |
-          /       Welcome, 
-          /     = current_user.email
-          / - else
-          /   li= link_to('Login', new_user_session_path)
-          /   li= link_to('Sign up now', new_user_registration_path)
+          - if user_signed_in?
+            li= link_to "Log out", destroy_user_session_path, :method => :delete 
+            li.user-welcome
+              |
+                Welcome, 
+              = current_user.email
+          - else
+            li= link_to('Login', new_user_session_path)
+            li= link_to('Sign up now', new_user_registration_path)
     .container
       div id="header"
         .notifications

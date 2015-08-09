@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe TasksController, type: :controller do
-  # let(:user) { create(:user) }
-  let(:project) { create(:project) }
+  let(:user) { create(:user) }
+  let(:project) { create(:project, user: user) }
 
   describe 'POST #create' do
-    # sign_in_user
+    sign_in_user
 
     context 'with valid atrributes' do
       it 'saves new task' do

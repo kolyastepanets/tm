@@ -1,11 +1,9 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_project, only: [:edit, :update, :destroy]
 
   def index
-    @projects = Project.all
-  end
-
-  def new
+    @projects = current_user.projects
     @project = Project.new
   end
 
@@ -14,7 +12,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    # @project.user = current_user
+    @project.user = current_user
 
     if @project.save
       redirect_to root_path
@@ -27,7 +25,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update(project_params)
-    # @project.user = current_user
+    @project.user = current_user
   end
 
   def destroy

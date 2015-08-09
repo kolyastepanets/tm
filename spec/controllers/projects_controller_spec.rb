@@ -1,39 +1,40 @@
 require 'rails_helper'
 
 RSpec.describe ProjectsController, type: :controller do
-  # let(:user) { create(:user) }
-  let(:project) { create(:project) }
+  let(:user) { create(:user) }
+  let(:project) { create(:project, user: user) }
 
   describe 'GET #index' do
-    # sign_in_user
+    sign_in_user
     before { get :index }
-    let(:projects) { create_list(:project, 2) }
-    # let(:project2) { create(:project) }
-    it 'has array of projects that belongs to user' do
-    #   pry  
-      expect(assigns(:projects)).to match_array(projects)
+    
+    context "for index" do
+      
+      # let(:projects) { create_list(:project, 2) }
+      # # let(:project2) { create(:project) }
+      # it 'has array of projects that belongs to user' do
+      # #   pry  
+      #   expect(assigns(:projects)).to match_array(projects)
+      # end
+
+      it 'render index' do
+        expect(response).to render_template :index
+      end
     end
 
-    it 'render index' do
-      expect(response).to render_template :index
-    end
-  end
+    context "for new project" do
+      it "creates new project" do
+        expect(assigns(:project)).to be_a_new(Project)
+      end
 
-  describe "GET #new" do
-    # sign_in_user
-    before { get :new }
-
-    it "creates new project" do
-      expect(assigns(:project)).to be_a_new(Project)
-    end
-
-    it "renders new view" do
-      expect(response).to render_template :new
+      it "renders new view" do
+        expect(response).to render_template :index
+      end      
     end
   end
 
   describe 'GET #edit' do
-    # sign_in_user
+    sign_in_user
 
     before { get :edit, id: project}
 
@@ -47,17 +48,17 @@ RSpec.describe ProjectsController, type: :controller do
   end
 
   describe 'POST #create' do
-    # sign_in_user
+    sign_in_user
 
     context 'with valid atrributes' do
       it 'saves new project' do
         expect { post :create, project: attributes_for(:project) }.to change(Project, :count).by(1)
       end
 
-      # it 'assigns project to user_id' do
-      #   post :create, user_id: user, project: attributes_for(:project)
-      #   expect(project.user_id).to eq user.id
-      # end
+      it 'assigns project to user_id' do
+        post :create, user_id: user, project: attributes_for(:project)
+        expect(project.user_id).to eq user.id
+      end
 
       it 'redirects to main page' do
         post :create, project: attributes_for(:project)
@@ -78,13 +79,13 @@ RSpec.describe ProjectsController, type: :controller do
   end
 
   describe 'PATCH #update' do
-    # sign_in_user
+    sign_in_user
     
     context 'valid attributes' do
       it 'assigns project to @project' do
         patch :update, id: project, project: attributes_for(:project)
         expect(assigns(:project)).to eq project
-        # expect(project.user_id).to eq user.id
+        expect(project.user_id).to eq user.id
       end
 
       it 'changes the question' do
@@ -109,7 +110,7 @@ RSpec.describe ProjectsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    # sign_in_user
+    sign_in_user
 
     before { project }
 
