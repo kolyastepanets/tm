@@ -1,0 +1,20 @@
+h1 SIMPLE TODO LISTS
+h2 FROM RUBY GARAGE
+
+- @projects.each do |project|
+  li.project id="project-#{project.id}"
+    = project.name
+    = link_to "Show", project
+
+  - project.tasks.each do |task|
+    ol= task.name
+
+  .link-new-task
+    = form_for [project, Task.new] do |f|
+      p= f.label :name, "Name"
+      p= f.text_area :name
+      p= f.submit "Add Task"
+ 
+
+.link-new-project
+  = link_to 'Add TODO List', new_project_path, class: "btn-new-project"
