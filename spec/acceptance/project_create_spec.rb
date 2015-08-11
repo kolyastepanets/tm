@@ -8,15 +8,14 @@ feature 'create project', %q{
 
   given(:user) { create(:user) }
 
-  scenario 'authenticated user creates project' do
+  scenario 'authenticated user creates project', js: true do
     sign_in(user)
-    
+
     visit projects_path
     click_on 'Add TODO List'
     fill_in 'Name', with: 'Test project'
     click_on 'Create'
     
-    expect(page).to have_content "Your project successfully created."
     expect(page).to have_content 'Test project'
   end
 

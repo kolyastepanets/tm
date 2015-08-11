@@ -9,14 +9,15 @@ feature 'create task', %q{
   given(:user) { create(:user) }
   given!(:project) { create(:project, user: user) }
 
-  scenario 'authenticated user creates task' do
+  scenario 'authenticated user creates task', js: true do
     sign_in(user)
     visit projects_path
     
-    fill_in 'Name', with: 'Test task'
-    click_on 'Add Task'
+    within(".new-task") do
+      fill_in 'Name', with: 'Test task'
+      click_on 'Add Task'
+    end
 
-    expect(page).to have_content "Your task successfully created."
     expect(page).to have_content 'Test task'
   end
 

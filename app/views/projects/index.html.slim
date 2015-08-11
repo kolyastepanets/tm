@@ -1,26 +1,18 @@
-h1 SIMPLE TODO LISTS
-h2 FROM RUBY GARAGE
+.wrapper  
+  h1 SIMPLE TODO LISTS
+  h2 FROM RUBY GARAGE
 
-- @projects.each do |project|
-  li.project id="project-#{project.id}"
-    = project.name
-
-  - project.tasks.each do |task|
-    ol= task.name
-
-  .link-new-task
-    = form_for [project, Task.new] do |f|
-      p= f.label :name, ''
-      p= f.text_area :name
-      p= f.submit "Add Task"
- 
+  .projects
+    - @projects.each do |project|
+      = render partial: 'projects/project', locals: {project: project}
 
   .link-new-project
-    = link_to 'Add TODO List', new_project_path, class: "btn-new-project"
+    = link_to 'Add TODO List', '', class: "btn-new-project"
 
-= form_for(@project) do |f| 
-  p= f.label :name
-  p= f.text_field :name
-  p= f.submit 'Create'
+  = form_for [@project], class: "new_project", remote: true do |f| 
+    p= f.label :name
+    p= f.text_field :name
+    p= f.submit 'Create'
+    p= link_to 'cancel project', '', class: 'cancel-project'
 
-  p= link_to 'Home', root_path
+    p= link_to 'Home', root_path

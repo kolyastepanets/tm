@@ -5,10 +5,7 @@ class TasksController < ApplicationController
   def create
     @task = @project.tasks.create(task_params)
 
-    if @task.save
-      redirect_to root_path
-      flash[:notice] = 'Your task successfully created.'
-    else
+    unless @task.save
       redirect_to root_path
       flash[:notice] = 'Task can not be blank.'
     end

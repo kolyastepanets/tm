@@ -1,0 +1,15 @@
+.all-project-stuff
+  ul.project-name
+    li= project.name
+
+  .new-task-form
+    .plus-picture
+      = image_tag "plus.png"
+    = form_for [project, Task.new], remote: true do |f|
+      = f.text_area :name, :placeholder => "Start typing here to create a task..."
+      = f.submit "Add Task", class: "add-task-button"
+
+  .tasks id="task-of-project-#{project.id}"
+    - project.tasks.each do |task|
+      - if task.persisted?
+        = render partial: 'tasks/task', locals: {task: task}

@@ -1,0 +1,5 @@
+$("#task-of-project-<%=@project.id%>").append('<%= j render partial: 'tasks/task', locals: {task: @task} %>');
+$(".new_task #task_name").val("");
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

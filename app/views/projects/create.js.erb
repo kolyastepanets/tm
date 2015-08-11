@@ -1,0 +1,7 @@
+$(".projects").append('<%= j render partial: 'projects/project', locals: {project: @project} %>');
+$(".new_project #project_name").val("");
+$("form.new_project").hide();
+$('.btn-new-project').show();
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

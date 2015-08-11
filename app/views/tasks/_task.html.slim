@@ -1,0 +1,6 @@
+ul.task-name
+  .status
+    /= check_box_tag: @task, :status
+  li
+    = task.name
+  .action-stuff

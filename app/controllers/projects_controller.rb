@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
     @project.user = current_user
 
     if @project.save
-      redirect_to root_path
+      # redirect_to root_path
       flash[:notice] = 'Your project successfully created.'
     else
       redirect_to root_path

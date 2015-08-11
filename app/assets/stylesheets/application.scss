@@ -1,0 +1,190 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+}
+
+.wrapper {
+  width: 678px;
+  margin: 0 auto;
+}
+
+.topnavbar {
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.navbar {
+  width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  height: 34px;
+}
+
+.navbar-links {
+  margin: 0;
+  position: absolute;
+  right: 100px;
+}
+
+.navbar-links li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a {
+  display: block;
+  text-decoration: none;
+  font-size: 13px;
+  color: #E0E0E0;
+  height: 24px;
+  padding: 10px 7px 7px 7px;
+  vertical-align: top;
+  height: 100%;
+}
+
+.navbar-links li a:hover {
+  background-color: #444;
+}
+
+.user-welcome {
+  font-size: 13px;
+}
+
+.all-project-stuff {
+  margin-bottom: 40px;
+}
+
+.projects {
+  margin-bottom: 20px;
+}
+
+.btn-new-project {
+  border-radius: 3px;
+  background: url(buttonbottom.jpg);  
+  border: 1px solid #335583;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 13px 29px 13px 50px;
+}
+
+.project-name {
+  width: 675px;
+  background: url(panel.jpg);
+  border-radius: 2px 2px 0 0;
+  border: 1px solid #335583;
+}
+
+.project-name li {
+  height: 35px;
+  padding-left: 55px;
+  padding-top: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+.new-task-form {
+  width: 675px;
+  height: 50px;
+  background-color: #cfcfcf;
+  border: 1px solid #cfcfcf;
+}
+
+form#new_task {
+  float: left;
+  margin-left: 10px;
+  position: relative;
+}
+
+textarea#task_name {
+  resize: none ;
+  width: 503px;
+  height: 22px;
+  margin-top: 9px;
+  padding-left: 7px;
+  padding-top: 7px;
+  border-top: 2px solid #9A8A8A;
+}
+
+input[value="Add Task"] {
+  color: white;
+  font-weight: bold;
+  width: 105px;
+  border-radius: 0 6px 6px 0;
+  background: linear-gradient(to bottom, #8cc3a6, #508767);
+  border: 1px solid #4e7f61;
+  cursor: pointer;
+  padding: 7.5px;
+  position: absolute;
+  top: 9px;
+}
+
+.plus-picture {
+  height: 26px;
+  width: 26px;
+  float: left;
+  margin-top: 11px;
+  margin-left: 11px;
+}
+
+.tasks {
+  width: 675px;
+  border-radius: 0 0 20px 20px;
+  border: 1px solid #cfcfcf;
+}
+
+.task-name {
+  height: 50px;
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.task-name:last-child {
+  border-bottom: none;
+}
+
+.task-name li {
+  float: left;
+  list-style-type: none;
+  width: 499px;
+  height: 35px;
+  margin-left: 3px;
+  border-left: 1px solid #cfcfcf;
+  border-right: 1px solid #cfcfcf;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.status {
+  height: 50px;
+  width: 40px;
+  float: left;
+  border-right: 1px solid #cfcfcf;
+}
+
+.action-stuff {
+  float: left;
+  width: 115px;
+  height: 50px;
+}

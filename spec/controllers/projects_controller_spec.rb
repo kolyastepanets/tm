@@ -11,11 +11,12 @@ RSpec.describe ProjectsController, type: :controller do
     context "for index" do
       
       # let(:projects) { create_list(:project, 2) }
-      # # let(:project2) { create(:project) }
-      # it 'has array of projects that belongs to user' do
-      # #   pry  
-      #   expect(assigns(:projects)).to match_array(projects)
-      # end
+      let(:project1) { create(:project, user: user) } 
+      let(:project2) { create(:project, user: user) }
+      it 'has array of projects that belongs to user' do
+      #   pry  
+        expect(assigns(:projects)).to match_array[project1, project2]
+      end
 
       it 'render index' do
         expect(response).to render_template :index
@@ -52,27 +53,27 @@ RSpec.describe ProjectsController, type: :controller do
 
     context 'with valid atrributes' do
       it 'saves new project' do
-        expect { post :create, project: attributes_for(:project) }.to change(Project, :count).by(1)
+        expect { post :create, project: attributes_for(:project), format: :js }.to change(Project, :count).by(1)
       end
 
       it 'assigns project to user_id' do
-        post :create, user_id: user, project: attributes_for(:project)
+        post :create, user_id: user, project: attributes_for(:project), format: :js
         expect(project.user_id).to eq user.id
       end
 
       it 'redirects to main page' do
-        post :create, project: attributes_for(:project)
-        expect(response).to redirect_to root_path
+        post :create, project: attributes_for(:project), format: :js
+        expect(response.status).to eq(200)
       end
     end
 
     context 'with invalid attributes' do
       it 'does not save project' do
-        expect { post :create, project: attributes_for(:project, :invalid) }.to_not change(Project, :count)       
+        expect { post :create, project: attributes_for(:project, :invalid), format: :js }.to_not change(Project, :count)       
       end
 
       it 'renders root_path' do
-        post :create, project: attributes_for(:project, :invalid)
+        post :create, project: attributes_for(:project, :invalid), format: :js
         expect(response).to redirect_to root_path
       end
     end
