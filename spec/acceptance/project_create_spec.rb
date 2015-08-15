@@ -4,7 +4,7 @@ feature 'create project', %q{
   in order to make new todo list
   as an authenticated user
   i want to able to create project
-} do 
+} do
 
   given(:user) { create(:user) }
 
@@ -15,7 +15,7 @@ feature 'create project', %q{
     click_on 'Add TODO List'
     fill_in 'Name', with: 'Test project'
     click_on 'Create'
-    
+
     expect(page).to have_content 'Test project'
   end
 

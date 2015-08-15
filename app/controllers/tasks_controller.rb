@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_project, only: [:create]
+  before_action :load_project, only: [:create, :update]
 
   def create
     @task = @project.tasks.create(task_params)
@@ -10,6 +10,15 @@ class TasksController < ApplicationController
       flash[:notice] = 'Task can not be blank.'
     end
   end
+
+  # def update
+  #   @task = Task.find(params[:id])
+  #   if @task.update_attributes(task_params)
+  #     redirect_to root_path
+  #   else
+  #     flash[:notice] = "try again"
+  #   end
+  # end
 
   private
 

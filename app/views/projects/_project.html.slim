@@ -1,6 +1,11 @@
-.all-project-stuff
+div.all-project-stuff id="project-#{project.id}"
   ul.project-name
     li= project.name
+    = link_to '', class: "edit-project", method: :delete, remote: true do
+      = image_tag("edit.jpg")
+    = link_to project_path(project), class: "delete-project", method: :delete, remote: true do
+      = image_tag("delete.jpg", class: "img-delete-project")
+
 
   .new-task-form
     .plus-picture

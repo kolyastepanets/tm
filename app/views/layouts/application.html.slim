@@ -5,7 +5,7 @@ html lang="en"
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
-   
+
   body
     .topnavbar.
       .navbar
@@ -22,11 +22,6 @@ html lang="en"
     .container
       div id="header"
         .notifications
-          p.notice
-            = notice
-          p.alert
-            = alert
+          = render 'layouts/notifications'
       div id="content"
         = yield
-    .footer
-      .footer-wrap

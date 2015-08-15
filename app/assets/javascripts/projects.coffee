@@ -2,15 +2,23 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 ready = ->
-  $('.btn-new-project').click (e) -> 
+  $('.btn-new-project').click (e) ->
     e.preventDefault();
     $(this).hide();
     $('form.new_project').show()
-  
+
   $('a.cancel-project').on 'click', (e) ->
     e.preventDefault()
     $("form.new_project").hide()
     $('.btn-new-project').show()
+
+  $(document).on('mouseover', '.project-name', (e) ->
+    e.preventDefault();
+    $('.edit-project', this).add('.delete-project', this).show());
+
+  $(document).on('mouseout', '.project-name', (e) ->
+    e.preventDefault();
+    $('.edit-project', this).add('.delete-project', this).hide());
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

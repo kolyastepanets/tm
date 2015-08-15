@@ -4,7 +4,7 @@ feature 'create task', %q{
   in order to set tasks I need to do
   as an authenticated user
   i want to able to create tasks
-} do 
+} do
 
   given(:user) { create(:user) }
   given!(:project) { create(:project, user: user) }
@@ -12,9 +12,8 @@ feature 'create task', %q{
   scenario 'authenticated user creates task', js: true do
     sign_in(user)
     visit projects_path
-    
-    within(".new-task") do
-      fill_in 'Name', with: 'Test task'
+    within(".new-task-form") do
+      fill_in "task_name", with: 'Test task'
       click_on 'Add Task'
     end
 

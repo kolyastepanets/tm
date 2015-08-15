@@ -54,8 +54,10 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
+  Capybara.ignore_hidden_elements = true
+
   Capybara.javascript_driver = :webkit
-  
+
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
@@ -63,7 +65,7 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
   end
-  
+
   config.before(:each, js: true) do
     DatabaseCleaner.strategy = :truncation
   end

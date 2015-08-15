@@ -15,7 +15,6 @@ class ProjectsController < ApplicationController
     @project.user = current_user
 
     if @project.save
-      # redirect_to root_path
       flash[:notice] = 'Your project successfully created.'
     else
       redirect_to root_path
@@ -23,14 +22,13 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def update
-    @project.update(project_params)
-    @project.user = current_user
-  end
+  # def update
+  #   @project.update(project_params)
+  #   @project.user = current_user
+  # end
 
   def destroy
     @project.destroy
-    redirect_to projects_path
     flash[:notice] = "Your project successfully deleted."
   end
 
