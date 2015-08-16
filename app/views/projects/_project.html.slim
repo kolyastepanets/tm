@@ -5,7 +5,7 @@ div.all-project-stuff id="project-#{project.id}"
     = link_to '', class: "edit-project", data: { project_id: project.id } do
       = image_tag("edit.jpg")
     = link_to project_path(project), class: "delete-project", method: :delete, remote: true do
-      = image_tag("delete.jpg", class: "img-delete-project")
+      = image_tag("delete.jpg")
 
 
   .new-task-form
@@ -18,4 +18,4 @@ div.all-project-stuff id="project-#{project.id}"
   .tasks id="task-of-project-#{project.id}"
     - project.tasks.each do |task|
       - if task.persisted?
-        = render partial: 'tasks/task', locals: {task: task}
+        = render partial: 'tasks/task', locals: {task: task, project: project}

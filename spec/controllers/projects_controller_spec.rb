@@ -34,20 +34,6 @@ RSpec.describe ProjectsController, type: :controller do
     end
   end
 
-  describe 'GET #edit' do
-    sign_in_user
-
-    before { get :edit, id: project}
-
-    it 'assigns project to @project' do
-      expect(assigns(:project)).to eq project
-    end
-
-    it 'renders #edit' do
-      expect(response).to render_template :edit
-    end
-  end
-
   describe 'POST #create' do
     sign_in_user
 
@@ -79,36 +65,36 @@ RSpec.describe ProjectsController, type: :controller do
     end
   end
 
-  # describe 'PATCH #update' do
-  #   sign_in_user
+  describe 'PATCH #update' do
+    sign_in_user
 
-  #   context 'valid attributes' do
-  #     it 'assigns project to @project' do
-  #       patch :update, id: project, project: attributes_for(:project)
-  #       expect(assigns(:project)).to eq project
-  #       expect(project.user_id).to eq user.id
-  #     end
+    context 'valid attributes' do
+      it 'assigns project to @project' do
+        patch :update, id: project, project: attributes_for(:project), format: :json
+        expect(assigns(:project)).to eq project
+        expect(project.user_id).to eq user.id
+      end
 
-  #     it 'changes the project' do
-  #       patch :update, id: project, project: { name: 'new name' }
-  #       project.reload
-  #       expect(project.name).to eq 'new name'
-  #     end
-  #   end
+      it 'changes the project' do
+        patch :update, id: project, project: { name: 'new name' }, format: :json
+        project.reload
+        expect(project.name).to eq 'new name'
+      end
+    end
 
-  #   context 'invalid attributes' do
-  #     before { patch :update, id: project, project: { name: nil } }
+    context 'invalid attributes' do
+      before { patch :update, id: project, project: { name: nil }, format: :json }
 
-  #     it 'does not change attributes' do
-  #       project.reload
-  #       expect(project.name).to eq project.name
-  #     end
+      it 'does not change attributes' do
+        project.reload
+        expect(project.name).to eq project.name
+      end
 
-  #     it 'renders #edit' do
-  #       expect(response).to render_template :update
-  #     end
-  #   end
-  # end
+      it 'renders #index' do
+        expect(response.status).to eq(422)
+      end
+    end
+  end
 
   describe 'DELETE #destroy' do
     sign_in_user

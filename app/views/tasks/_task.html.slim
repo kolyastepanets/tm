@@ -1,6 +1,16 @@
-ul.task-name
+ul.task-name id="task-#{task.id}"
   .status
 
-  li
-    = task.name
+  li id="task-#{task.id}-name"
+    = best_in_place [project, task], :name
   .action-stuff
+    .task-up-down
+      = link_to '', class: "up-task", data: { task_id: task.id } do
+        = image_tag("up-task.png")
+      = link_to '', class: "down-task", data: { task_id: task.id } do
+        = image_tag("down-task.png")
+    .edit-delete-task
+      = link_to '', class: "edit-task", data: { task_id: task.id } do
+        = image_tag("edit-task.png")
+      = link_to project_task_path(project, task), class: "delete-task", method: :delete, remote: true do
+        = image_tag("delete-task.png")

@@ -10,9 +10,6 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
-  def edit
-  end
-
   def create
     respond_with(@project = Project.create(project_params.merge(user: current_user)))
   end
