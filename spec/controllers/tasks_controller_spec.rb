@@ -26,12 +26,12 @@ RSpec.describe TasksController, type: :controller do
 
     context 'with invalid attributes' do
       it 'does not save task' do
-        expect { post :create, project_id: project, task: attributes_for(:task, :invalid), format: :js }.to_not change(Task, :count)       
+        expect { post :create, project_id: project, task: attributes_for(:task, :invalid), format: :js }.to_not change(Task, :count)
       end
 
       it 'renders root_path' do
         post :create, project_id: project, task: attributes_for(:task, :invalid), format: :js
-        expect(response).to redirect_to root_path
+        expect(response).to be_success
       end
     end
   end

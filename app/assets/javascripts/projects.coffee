@@ -2,6 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 ready = ->
+  $('.best_in_place').best_in_place()
+
   $('.btn-new-project').click (e) ->
     e.preventDefault();
     $(this).hide();
@@ -19,6 +21,11 @@ ready = ->
   $(document).on('mouseout', '.project-name', (e) ->
     e.preventDefault();
     $('.edit-project', this).add('.delete-project', this).hide());
+
+  $(document).on('click', '.edit-project', (e) ->
+    e.preventDefault();
+    project_id = $(this).data('projectId')
+    $('#best_in_place_project_' + project_id + '_name').click());
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

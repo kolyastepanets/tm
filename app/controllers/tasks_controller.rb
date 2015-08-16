@@ -2,13 +2,10 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :load_project, only: [:create, :update]
 
-  def create
-    @task = @project.tasks.create(task_params)
+  respond_to :js, only: [:create, :destroy]
 
-    unless @task.save
-      redirect_to root_path
-      flash[:notice] = 'Task can not be blank.'
-    end
+  def create
+    respond_with(@task = @project.tasks.create(task_params))
   end
 
   # def update

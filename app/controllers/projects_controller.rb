@@ -2,6 +2,9 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :load_project, only: [:edit, :update, :destroy]
 
+  respond_to :json, only: :update
+  respond_to :js, only: [:create, :destroy]
+
   def index
     @projects = current_user.projects
     @project = Project.new
@@ -11,25 +14,17 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
-    @project.user = current_user
-
-    if @project.save
-      flash[:notice] = 'Your project successfully created.'
-    else
-      redirect_to root_path
-      flash[:notice] = 'Project can not be blank.'
-    end
+    respond_with(@project = Project.create(project_params.merge(user: current_user)))
   end
 
-  # def update
-  #   @project.update(project_params)
-  #   @project.user = current_user
-  # end
+  def update
+    @project.update(project_params)
+    @project.user = current_user
+    respond_with @project
+  end
 
   def destroy
-    @project.destroy
-    flash[:notice] = "Your project successfully deleted."
+    respond_with(@project.destroy)
   end
 
   private

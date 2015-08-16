@@ -74,7 +74,7 @@ RSpec.describe ProjectsController, type: :controller do
 
       it 'renders root_path' do
         post :create, project: attributes_for(:project, :invalid), format: :js
-        expect(response).to redirect_to root_path
+        expect(response).to be_success
       end
     end
   end

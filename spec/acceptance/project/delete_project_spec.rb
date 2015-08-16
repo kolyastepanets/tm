@@ -8,8 +8,8 @@ feature 'delete project' do
   scenario 'user can delete his project', js: true do
     sign_in(user)
     visit projects_path
-    save_and_open_page
-    find('.delete-project').click
+    page.find('.delete-project').trigger(:mouseover)
+    page.find('.delete-project').click
     expect(page).to_not have_content project.name
   end
 end
