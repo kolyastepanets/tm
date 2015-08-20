@@ -23,7 +23,7 @@ html {
 }
 
 .wrapper {
-  width: 678px;
+  width: 700px;
   margin: 0 auto;
 }
 
@@ -34,36 +34,37 @@ html {
 }
 
 .navbar {
-  width: 1000px;
+  width: 700px;
   margin: 0 auto;
-  position: relative;
-  height: 34px;
+  height: 35px;
 }
 
-.navbar-links {
-  margin: 0;
-  position: absolute;
-  right: 100px;
+ul.navbar-links {
+  width: 300px;
+  float: right;
 }
 
-.navbar-links li {
+.navbar li {
   display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-links li a {
-  display: block;
   text-decoration: none;
   font-size: 13px;
   color: #E0E0E0;
-  height: 24px;
-  padding: 10px 7px 7px 7px;
-  vertical-align: top;
-  height: 100%;
+  margin-left: 5px;
 }
 
-.navbar-links li a:hover {
+.navbar li:first-child {
+  margin-left: 40px;
+}
+
+.navbar li a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 13px;
+  color: #E0E0E0;
+  padding: 9px;
+}
+
+.navbar li a:hover {
   background-color: #444;
 }
 
@@ -95,7 +96,6 @@ html {
 }
 
 .project-name {
-  width: 675px;
   background: url(panel.jpg);
   border-radius: 2px 2px 0 0;
   border: 1px solid #335583;
@@ -125,8 +125,7 @@ html {
 }
 
 .new-task-form {
-  width: 675px;
-  height: 50px;
+  height: 48px;
   background-color: #cfcfcf;
   border: 1px solid #cfcfcf;
 }
@@ -139,12 +138,13 @@ form#new_task {
 
 textarea#task_name {
   resize: none ;
-  width: 503px;
+  width: 523px;
   height: 22px;
   margin-top: 9px;
   padding-left: 7px;
   padding-top: 7px;
   border-top: 2px solid #9A8A8A;
+  border-bottom: none;
 }
 
 input[value="Add Task"] {
@@ -155,7 +155,7 @@ input[value="Add Task"] {
   background: linear-gradient(to bottom, #8cc3a6, #508767);
   border: 1px solid #4e7f61;
   cursor: pointer;
-  padding: 7.5px;
+  padding: 7px;
   position: absolute;
   top: 9px;
 }
@@ -169,7 +169,6 @@ input[value="Add Task"] {
 }
 
 .tasks {
-  width: 675px;
   border-radius: 0 0 20px 20px;
   border: 1px solid #cfcfcf;
 }
@@ -197,7 +196,7 @@ input[value="Add Task"] {
 .task-name li {
   float: left;
   list-style-type: none;
-  width: 499px;
+  width: 519px;
   height: 35px;
   margin-left: 3px;
   border-left: 1px solid #cfcfcf;
@@ -228,7 +227,6 @@ input[value="Add Task"] {
 }
 
 .up-task {
-  /*margin-left: 3px;*/
   position: absolute;
   top: 11px;
   display: none;
@@ -243,7 +241,7 @@ input[value="Add Task"] {
 
 .edit-delete-task {
   width: 70px;
-  height: 50px;
+  height: 30px;
   float: left;
   margin-top: 12px;
 }
@@ -254,4 +252,43 @@ input[value="Add Task"] {
 
 .edit-task {
   display: none;
+}
+
+/*.status_check_box {
+  margin-left: 13px;
+  margin-top: 16px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+*/
+
+input[type=checkbox] {
+  /*padding-left: 5px;*/
+  /*padding-right: 5px;*/
+  /*border-radius: 2px;*/
+  -webkit-appearance:button;
+  /*border: double 1px #a8a8a8;*/
+  /*background: linear-gradient(to bottom, #efefef, #fdfdfd);*/
+  /*color: #FFF;*/
+  /*white-space: nowrap;*/
+  /*overflow: hidden;*/
+  margin-left: 13px;
+  margin-top: 16px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  background: url(mac-style-empty.png);
+  background-repeat:no-repeat;
+}
+
+input[type=checkbox]:checked {
+  border-left-color: #06F;
+  border-right-color: #06F;
+  background: url(mac-style-full.png);
+  background-repeat:no-repeat;
+}
+
+input[type=checkbox]:hover {
+  box-shadow: 0px 0px 5px #a8a8a8;
 }

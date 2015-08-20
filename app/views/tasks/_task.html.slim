@@ -1,6 +1,6 @@
 ul.task-name id="task-#{task.id}"
   .status
-
+    = check_box_tag :status, task.id, task.status, class: "status_check_box", data: { project_id: project.id }
   li id="task-#{task.id}-name"
     = best_in_place [project, task], :name
   .action-stuff

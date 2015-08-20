@@ -21,6 +21,20 @@ ready = ->
     task_id = $(this).data('taskId')
     $('#best_in_place_task_' + task_id + '_name').click());
 
+  $(document).on('click', '.edit-answer-link', (e) ->
+    e.preventDefault();
+    $(this).hide();
+    answer_id = $(this).data('answerId')
+    $('form#edit-answer-' + answer_id).show())
+
+  $(document).on('change', '#status', (e) ->
+    e.preventDefault();
+    project = $('.status_check_box').data('projectId')
+    $.ajax
+      url: '/projects/' + project + '/tasks/' + @value
+      type: 'PATCH'
+      data: task: 'status': @checked)
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
 $(document).on('page:update', ready)
