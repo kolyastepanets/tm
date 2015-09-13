@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  */
 
 * {
@@ -254,25 +255,13 @@ input[value="Add Task"] {
   display: none;
 }
 
-/*.status_check_box {
-  margin-left: 13px;
-  margin-top: 16px;
-  width: 17px;
-  height: 17px;
-  cursor: pointer;
-}
-*/
-
 input[type=checkbox] {
-  /*padding-left: 5px;*/
-  /*padding-right: 5px;*/
-  /*border-radius: 2px;*/
   -webkit-appearance:button;
-  /*border: double 1px #a8a8a8;*/
-  /*background: linear-gradient(to bottom, #efefef, #fdfdfd);*/
-  /*color: #FFF;*/
-  /*white-space: nowrap;*/
-  /*overflow: hidden;*/
+  -webkit-transition: all 1s ease; /* Safari and Chrome */
+  -moz-transition: all 1s ease; /* Firefox */
+  -ms-transition: all 1s ease; /* IE 9 */
+  -o-transition: all 1s ease; /* Opera */
+  transition: all 1s ease;
   margin-left: 13px;
   margin-top: 16px;
   width: 17px;
@@ -283,12 +272,15 @@ input[type=checkbox] {
 }
 
 input[type=checkbox]:checked {
-  border-left-color: #06F;
-  border-right-color: #06F;
   background: url(mac-style-full.png);
   background-repeat:no-repeat;
 }
 
 input[type=checkbox]:hover {
-  box-shadow: 0px 0px 5px #a8a8a8;
+  /*box-shadow: 0px 3px 0 0 #a8a8a8;*/
+}
+
+.box-change {
+  width: 400px;
+  height: 400px;
 }

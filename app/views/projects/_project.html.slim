@@ -15,7 +15,7 @@ div.all-project-stuff id="project-#{project.id}"
       = f.text_area :name, :placeholder => "Start typing here to create a task..."
       = f.submit "Add Task", class: "add-task-button"
 
-  .tasks id="task-of-project-#{project.id}"
+  div.tasks id="task-of-project-#{project.id}" data-update-url=url_for(sort_tasks_url)
     - project.tasks.each do |task|
       - if task.persisted?
         = render partial: 'tasks/task', locals: {task: task, project: project}

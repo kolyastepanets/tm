@@ -15,7 +15,14 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task.destroy
+    respond_with(@task.destroy)
+  end
+
+  def sort
+    params[:task].each_with_index do |id, index|
+      Task.where(id: id).update_all({position: index+1})
+    end
+    render nothing: true
   end
 
   private

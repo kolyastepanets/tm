@@ -5,10 +5,12 @@ ul.task-name id="task-#{task.id}"
     = best_in_place [project, task], :name
   .action-stuff
     .task-up-down
-      = link_to '', class: "up-task", data: { task_id: task.id } do
-        = image_tag("up-task.png")
-      = link_to '', class: "down-task", data: { task_id: task.id } do
-        = image_tag("down-task.png")
+      p.drag
+        | [drag]
+      //= link_to '', class: "up-task", id: "up-task-#{task.id}", data: { task_id: task.id }
+        //= image_tag("up-task.png")
+      //= link_to '', class: "down-task", data: { task_id: task.id } do
+        //= image_tag("down-task.png")
     .edit-delete-task
       = link_to '', class: "edit-task", data: { task_id: task.id } do
         = image_tag("edit-task.png")

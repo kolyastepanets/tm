@@ -8,24 +8,20 @@ ready = ->
     e.preventDefault();
     $('.edit-task', this).add('.delete-task', this)
       .add('.up-task', this)
-      .add('.down-task', this).show());
+      .add('.down-task', this)
+      .add('.drag', this).show());
 
   $(document).on('mouseout', '.task-name', (e) ->
     e.preventDefault();
     $('.edit-task', this).add('.delete-task', this)
       .add('.up-task', this)
-      .add('.down-task', this).hide());
+      .add('.down-task', this)
+      .add('.drag', this).hide());
 
   $(document).on('click', '.edit-task', (e) ->
     e.preventDefault();
     task_id = $(this).data('taskId')
     $('#best_in_place_task_' + task_id + '_name').click());
-
-  $(document).on('click', '.edit-answer-link', (e) ->
-    e.preventDefault();
-    $(this).hide();
-    answer_id = $(this).data('answerId')
-    $('form#edit-answer-' + answer_id).show())
 
   $(document).on('change', '#status', (e) ->
     e.preventDefault();
@@ -35,6 +31,11 @@ ready = ->
       type: 'PATCH'
       data: task: 'status': @checked)
 
+  $ ->
+    $('.tasks').sortable
+      axis: 'y'
+      update: ->
+        $.post($(this).data('update-url'), $(this).sortable('serialize'))
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
-$(document).on('page:update', ready)
