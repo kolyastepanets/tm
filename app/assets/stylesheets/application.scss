@@ -73,6 +73,11 @@ ul.navbar-links {
   font-size: 13px;
 }
 
+h1 {
+  margin: 20px auto;
+  text-align: center;
+}
+
 .all-project-stuff {
   margin-bottom: 40px;
 }
@@ -97,18 +102,34 @@ ul.navbar-links {
 }
 
 .project-name {
-  background: url(panel.jpg);
   border-radius: 2px 2px 0 0;
   border: 1px solid #335583;
+  height: 51px;
+}
+
+.calendar {
+  width: 53px;
+  height: 51px;
+  background: url(calendar.jpg);
+  float: left;
+  cursor: pointer;
+}
+
+.panel {
+  float: left;
+  width: 645px;
+  background: url(panel.jpg);
+  /*margin-left: 53px;*/
 }
 
 .project-name li {
   height: 35px;
-  padding-left: 55px;
+  padding-left: 10px;
   padding-top: 16px;
   font-weight: bold;
   cursor: pointer;
   color: white;
+  list-style-type: none;
 }
 
 .delete-project{
