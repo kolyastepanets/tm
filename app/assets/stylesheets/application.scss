@@ -93,7 +93,8 @@ h1 {
 
 .btn-new-project {
   border-radius: 3px;
-  background: url(buttonbottom.jpg);
+  background-image: image-url("buttonbottom.jpg");
+  /*background: url(buttonbottom.jpg);*/
   border: 1px solid #335583;
   color: white;
   text-decoration: none;
@@ -102,7 +103,8 @@ h1 {
 }
 
 .project-name {
-  background: url(panel.jpg);
+  background-image: image-url("panel.jpg");
+  /*background: url(panel.jpg);*/
   border-radius: 2px 2px 0 0;
   border: 1px solid #335583;
 }
@@ -272,12 +274,14 @@ input[type=checkbox] {
   width: 17px;
   height: 17px;
   cursor: pointer;
-  background: url(mac-style-empty.png);
+  /*background: url(mac-style-empty.png);*/
+  background-image: image-url("mac-style-empty.png");
   background-repeat:no-repeat;
 }
 
 input[type=checkbox]:checked {
-  background: url(mac-style-full.png);
+  background-image: image-url("mac-style-full.png");
+  /*background: url(mac-style-full.png);*/
   background-repeat:no-repeat;
 }
 
