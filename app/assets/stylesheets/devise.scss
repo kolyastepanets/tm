@@ -1,0 +1,60 @@
+form.new_user  {
+  width: 300px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#user_email, #user_password, #user_password_confirmation {
+  padding: 5px 0 5px 10px;
+  width: 250px;
+  border-radius: 2px;
+  border: 1px solid #335583;
+  margin-bottom: 15px;
+}
+
+.remember-field {
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+.log-in {
+  border-radius: 3px;
+  background: url(buttonbottom1.jpg);
+  border: 1px solid #335583;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 13px 30px;
+  cursor: pointer;
+}
+
+.links-after-form {
+  width: 300px;
+  margin: 15px auto 0 auto;
+}
+
+a.link {
+  text-decoration: none;
+}
+
+a.link:hover {
+  text-decoration: underline;
+}
+
+#error_explanation {
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+#error_explanation h2 {
+  color: red;
+}
+
+#error_explanation ul {
+  color: #f94747;
+  margin-left: 25px;
+}

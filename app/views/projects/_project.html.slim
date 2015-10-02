@@ -4,7 +4,7 @@ div.all-project-stuff id="project-#{project.id}"
       = best_in_place project, :name
     = link_to '', class: "edit-project", data: { project_id: project.id } do
       = image_tag("edit.jpg")
-    = link_to project_path(project), class: "delete-project", method: :delete, remote: true do
+    = link_to project_path(project), class: "delete-project", method: :delete, data: { confirm: 'Are you sure?' }, remote: true do
       = image_tag("delete.jpg")
 
 

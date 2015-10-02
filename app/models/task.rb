@@ -4,4 +4,6 @@ class Task < ActiveRecord::Base
   belongs_to :project
 
   default_scope { order('position') }
+
+  acts_as_list scope: :project
 end

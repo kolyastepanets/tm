@@ -1,4 +1,10 @@
-p.notice
-  = notice
-p.alert
-  = alert
+.notice-block
+  p.notice style=('display:none' unless notice.present?)
+    = notice
+  .black-cross style=('display:none' unless notice.present?)
+    = image_tag("black-cross.png", class: "cancel-notification")
+.alert-block
+  p.alert style=('display:none' unless alert.present?)
+    = alert
+  .black-cross style=('display:none' unless alert.present?)
+    = image_tag("black-cross.png", class: "cancel-notification")

@@ -4,12 +4,12 @@ Rails.application.routes.draw do
     resources :tasks
   end
 
-  # resources :tasks do
-  #   member do
-  #     post 'move_up'
-  #     post 'move_down'
-  #   end
-  # end
+  resources :tasks do
+    member do
+      get 'move_up'
+      get 'move_down'
+    end
+  end
   resources :tasks do
     collection { post :sort }
   end

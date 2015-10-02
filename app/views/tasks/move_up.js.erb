@@ -1,0 +1,5 @@
+project_id = $(this).data('projectId')
+$("#task-of-project-" + project_id).replaceWith('<%= j render partial: 'tasks/move', locals: {task: @task, project: @project} %>');
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

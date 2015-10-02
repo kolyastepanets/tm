@@ -31,11 +31,10 @@ ready = ->
       type: 'PATCH'
       data: task: 'status': @checked)
 
-  $ ->
-    $('.tasks').sortable
-      axis: 'y'
-      update: ->
-        $.post($(this).data('update-url'), $(this).sortable('serialize'))
+  $('.tasks').sortable
+    axis: 'y'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

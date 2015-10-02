@@ -14,6 +14,10 @@ ready = ->
     $("form.new_project").hide()
     $('.btn-new-project').show()
 
+  $('.black-cross').on 'click', (e) ->
+    e.preventDefault()
+    $(".notifications").hide()
+
   $(document).on('mouseover', '.project-name', (e) ->
     e.preventDefault();
     $('.edit-project', this).add('.delete-project', this).show());

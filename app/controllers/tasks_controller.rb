@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :load_project, only: [:create, :update]
-  before_action :load_task, only: [:update, :destroy]
+  before_action :load_task, only: [:update, :destroy, :move_up, :move_down]
 
   respond_to :js, only: [:create, :destroy]
   respond_to :json, only: :update
@@ -23,6 +23,16 @@ class TasksController < ApplicationController
       Task.where(id: id).update_all({position: index+1})
     end
     render nothing: true
+  end
+
+  def move_up
+    @task.move_higher
+    redirect_to root_path
+  end
+
+  def move_down
+    @task.move_lower
+    redirect_to root_path
   end
 
   private

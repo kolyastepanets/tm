@@ -73,6 +73,11 @@ ul.navbar-links {
   font-size: 13px;
 }
 
+h1 {
+  margin: 20px auto;
+  text-align: center;
+}
+
 .all-project-stuff {
   margin-bottom: 40px;
 }
@@ -283,4 +288,48 @@ input[type=checkbox]:hover {
 .box-change {
   width: 400px;
   height: 400px;
+}
+
+.notifications {
+  width: 300px;
+  margin: 0 auto;
+  margin: 5px auto;
+}
+
+.alert {
+  text-align: center;
+  color: red;
+  border: 1px solid red;
+  border-radius: 4px;
+  background-color: pink;
+  padding: 5px 0;
+}
+
+.notice {
+  text-align: center;
+  color: green;
+  border: 1px solid darkgreen;
+  border-radius: 4px;
+  background-color: lightgreen;
+  padding: 5px 0;
+}
+
+.alert-block {
+  position: relative;
+}
+
+.notice-block {
+  position: relative;
+}
+
+.cancel-notification {
+  width: 7px;
+  height: 7px;
+}
+
+.black-cross {
+  right: 2px;
+  top: -2px;
+  position: absolute;
+  cursor: pointer;
 }
