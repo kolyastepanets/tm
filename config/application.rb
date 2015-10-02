@@ -33,5 +33,7 @@ module Tm
                         controller_specs: true
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
+
+    config.serve_static_assets = true
   end
 end
