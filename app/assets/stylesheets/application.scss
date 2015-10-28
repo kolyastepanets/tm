@@ -54,7 +54,7 @@ ul.navbar-links {
 }
 
 .navbar li:first-child {
-  margin-left: 40px;
+  margin-left: 30px;
 }
 
 .navbar li a {
@@ -336,4 +336,13 @@ input[type=checkbox]:hover {
   top: -2px;
   position: absolute;
   cursor: pointer;
+}
+
+.best_in_place {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  width: 400px;
 }
